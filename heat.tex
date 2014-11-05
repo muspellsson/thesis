@@ -1,0 +1,146 @@
+\documentclass{article}
+
+\usepackage[cp1251]{inputenc}
+\usepackage{graphicx}
+
+\usepackage[russian]{babel}
+
+\begin{document}
+
+\subsection{Системы теплообмена с одним нагреваемым потоком}
+
+\textbf{Двухпоточный теплообмен}
+
+Для получения оценок будем предполагать, что один из контактирующих потоков (для определенности, горячий) имеет фиксированную температуру $T_0$ на входе и водяной эквивалент $W_0$, а температура холодного потока $T$ подлежит выбору (управление). Тогда в каждом сечении теплообменника $l$ имеем 
+
+\begin{equation}
+\frac{dT_0}{dl} = -\frac{q(T_0, T)}{W_0};\quad T_0(0) = T_0^0.
+\label{heat1}
+\end{equation}
+
+Общую поверхность аппарата обозначим через $L$. Производство энтропии
+\begin{equation}
+\sigma = \int\limits_0^L q(T_0, T)\left(\frac{1}{T}-\frac{1}{T_0}\right)dl \rightarrow \min\limits_T,
+\label{heat2}
+\end{equation}
+при этом фиксируем $L$ и тепловую нагрузку
+\begin{equation}
+\int\limits_0^L q(T_0, T)dl = \bar{q}.
+\label{heat3}
+\end{equation}
+
+Условия оптимальности задачи (\ref{heat1}) -- (\ref{heat2}) запишем в форме принципа максимума Понтрягина. Функция Гамильтона
+\begin{equation}
+H = q(T_0, T)\left(\frac{1}{T})-\frac{1}{T_0} + \lambda - \frac{\Psi(l)}{W}\right)
+\label{heat4}
+\end{equation}
+
+Условия оптимальности:
+\begin{enumerate}
+\item На оптимальном решении функция $H$ постоянна для любого $l$
+\begin{equation}
+H =q(T_0,T)\left(\frac{1}{T}-\frac{1}{T_0} + \lambda - \frac{\Psi(l)}{W}\right) = const = m.
+\label{heat5}
+\end{equation}
+
+\item Так как $q$ дифференцируема и на $T$ нет ограничений, то
+\begin{equation}
+\frac{\partial H}{\partial T} = 0 \Rightarrow \frac{\partial q}{\partial T}\left(\frac{1}{T} - \frac{1}{T_0} + \lambda - \frac{\Psi}{W}\right) - \frac{q(T_0, T)}{T^2} = 0.
+\label{heat6}
+\end{equation}
+\end{enumerate}
+
+Из (\ref{heat5}), (\ref{heat6}) следует после исключения $\lambda$ и $\Psi$, что в оптимальном процессе в любом сечении должно быть выполнено условие минимальной диссипации двухпоточного теплообмена:
+\begin{equation}
+\left[\frac{q(T_0,T)}{T}\right]^2 = m\frac{\partial q}{\partial T}.
+\label{heat7}
+\end{equation}
+
+Обозначим через $\sigma_0 < 0$ уменьшение энтропии горячего потока. Оно равно
+\begin{equation}
+\sigma_0(\bar{q},W, T_0^0) = \int\limits_{T_0^0}^{T_0^0-\bar{q}/W} W \frac{dT_0}{T_0} = W\ln\left(1-\frac{\bar{q}}{WT_0^0}\right).
+\label{heat8}
+\end{equation}
+
+Отметим, что $\sigma_0$ не зависит от $\alpha$.
+
+В свою очередь
+\begin{equation}
+\bar{q} = WT_0^0\left(1 - l^{\sigma_0/W}\right).
+\label{heat9}
+\end{equation}
+
+Конкретизируем полученные соотношения для случая, когда поток теплообмена пропорционален разности температур
+\begin{equation}
+q = \alpha(T_0 - T),
+\label{heat10}
+\end{equation}
+где $\alpha$ --- коэффициент теплопередачи, отнесенный к единице поверхности контакта.
+
+В случае (\ref{heat10}) из условия (\ref{heat7}) следует, что в любом сечении
+\begin{equation}
+\Bigg\{
+\begin{array}{l}
+\frac{T}{T_0} = const = m^0,\\
+q(T_0) = \alpha T_0 (1 - m^0).
+\end{array}
+\label{heat11}
+\end{equation}
+
+После подстановки в (\ref{heat8}) получим
+\begin{equation}
+\sigma_0 = \alpha L(m^0 - 1).
+\label{heat12}
+\end{equation}
+Обозначим $\alpha L$ через $\bar{\alpha}$.
+
+Из сравнения равенств (\ref{heat12}) и (\ref{heat8}) можно выразить $m^0$ через тепловую нагрузку и коэффициент теплопередачи
+\begin{equation}
+m^0 = 1 + \frac{W}{\bar{\alpha}}\ln\left(1 - \frac{\bar{q}}{WT_0^0}\right) = 1 + \frac{\sigma_0}{\bar{\alpha}}.
+\label{heat13}
+\end{equation}
+
+По формуле (\ref{heat2}) минимальная диссипация
+\begin{equation}
+\sigma_{min} = \frac{\bar{\alpha}(1-m^0)^2}{m^0}.
+\label{heat14}
+\end{equation}
+
+Если в это равенство подставить выражение (\ref{heat13}), то получим
+\begin{equation}
+\sigma_{min} = \frac{\sigma_0^2}{\sigma_0 + \bar{\alpha}}.
+\end{equation}
+
+Так как $\sigma_{min} > 0$, то $\bar{\alpha} > -\sigma_0$. Неравенство $\sigma \geq \sigma_{min}$ приводит к условию физической реализуемости теплообменника.
+
+Фактическое значение $\sigma$ для теплообменника с водяными эквивалентами горячего и холодного потоков $W$ и $W_x$ соответственно, их температурами на входе $T_0^0$ и $T_x^0$ и тепловой нагрузкой $\bar{q}$ может быть для несжимаемых жидкостей рассчитано как
+\begin{equation}
+\sigma = W\ln\frac{T_0^0-\bar{q}/W}{T_0^0} + W_x\ln\frac{T_x^0+\bar{q}/W_x}{T_x^0}.
+\label{heat16}
+\end{equation}
+
+Получим условие физической реализуемости
+\begin{equation}
+\begin{array}{l}
+W\ln\frac{T_0^0-\bar{q}/W}{T_0^0} + W_x\ln\frac{T_x^0+\bar{q}/W_x}{T_x^0} \geq \\
+\geq \frac{W^2\ln^2\left(1-\frac{\bar{q}}{W T_0^0}\right)}{W\ln\left(1-\frac{\bar{q}}{WT_0^0}\right) + \bar{\alpha}}
+\end{array}
+\label{heat17}
+\end{equation}
+
+Или, после разрешения относительно $\bar{\alpha}$
+\begin{equation}
+\bar{\alpha} \geq \frac{W\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)+W_x\ln\left(1+\frac{\bar{q}}{W_x T_x^0}\right)}{W_x W\ln\left(1+\frac{\bar{q}}{W_x T_x^0}\right)\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)}.
+\label{heat18}
+\end{equation}
+Таким образом, чтобы обеспечить тепловую нагрузку $\bar{q}$ при заданных температурах потоков на входе и их водяных эквивалентах в любом теплообменнике интегральный коэффициент теплообмена должен быть не меньше чем правая часть неравенства (\ref{heat18}).
+
+\begin{figure}
+\includegraphics[width=0.4\columnwidth]{heat1}
+\caption{Зависимость $\alpha$ от $\bar{q}$}
+\label{heat1fig}
+\end{figure}
+
+На рис. \ref{heat1fig} показана зависимость $\alpha_{min}(\bar{q})$ соответствующая границе реализуемости. Область физической реализуемости теплообменников на этом рисунке заштрихована.
+
+\end{document}
