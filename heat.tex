@@ -2,6 +2,7 @@
 
 \usepackage[cp1251]{inputenc}
 \usepackage{graphicx}
+\usepackage{amsmath}
 
 \usepackage[russian]{babel}
 
@@ -79,11 +80,10 @@ q = \alpha(T_0 - T),
 
 В случае (\ref{heat10}) из условия (\ref{heat7}) следует, что в любом сечении
 \begin{equation}
-\Bigg\{
-\begin{array}{l}
-\frac{T}{T_0} = const = m^0,\\
-q(T_0) = \alpha T_0 (1 - m^0).
-\end{array}
+\begin{cases}
+\frac{T}{T_0} = const = m^0,&\\
+q(T_0) = \alpha T_0 (1 - m^0).&
+\end{cases}
 \label{heat11}
 \end{equation}
 
@@ -109,6 +109,7 @@ m^0 = 1 + \frac{W}{\bar{\alpha}}\ln\left(1 - \frac{\bar{q}}{WT_0^0}\right) = 1 +
 Если в это равенство подставить выражение (\ref{heat13}), то получим
 \begin{equation}
 \sigma_{min} = \frac{\sigma_0^2}{\sigma_0 + \bar{\alpha}}.
+\label{heat15}
 \end{equation}
 
 Так как $\sigma_{min} > 0$, то $\bar{\alpha} > -\sigma_0$. Неравенство $\sigma \geq \sigma_{min}$ приводит к условию физической реализуемости теплообменника.
@@ -143,4 +144,187 @@ W\ln\frac{T_0^0-\bar{q}/W}{T_0^0} + W_x\ln\frac{T_x^0+\bar{q}/W_x}{T_x^0} \geq \
 
 На рис. \ref{heat1fig} показана зависимость $\alpha_{min}(\bar{q})$ соответствующая границе реализуемости. Область физической реализуемости теплообменников на этом рисунке заштрихована.
 
+\textbf{Возможности реализации <<идеального>> двухпоточного теплообмена}
+
+Чтобы достичь полученной выше оценки минимальной диссипации $\sigma_{min}$ (см. (\ref{heat14})) для кинетики теплообмена линейной относительно разности температур требуется, чтобы в любой точке контакта отношение температур потоков было постоянно
+\begin{equation}
+T_x/T_0 = m^0 = 1 +\frac{W}{\bar{\alpha}}\ln\left(1-\frac{\bar{q}}{WT_0^0}\right).
+\label{heati1}
+\end{equation}
+
+Изменение каждой из температур в противоточном теплообменнике вытеснения для любой кинетики теплообмена характеризуется уравнением
+\begin{equation}
+\frac{dT_x}{dl} = -\frac{q(T_0, T_x)}{W_x};\quad \frac{dT_0}{dl} = -\frac{q(T_0, T_x)}{W}.
+\label{heati2}
+\end{equation}
+
+В этом выражении учтены противоположные направления движения потоков, а за сечение $l=0$ принято сечение, в котором $T_0 = T_0^0$. Из условий (\ref{heati2}) следует, что
+\begin{equation}
+\frac{dT_x}{dT_0} = \frac{W}{W_x} = const.
+\label{heati3}
+\end{equation}
+
+Таким образом, если для некоторого значения $l$ обеспечить, чтобы условие (\ref{heati1}) было выполнено и чтобы константа в (\ref{heati3}) была равна $m^0$, то условие (\ref{heati1}) окажется выполнено для всех $l$.
+
+Получим для $l=0$
+\begin{equation}
+\frac{T_x^0 + \bar{q}/W_x}{T_0^0} = m^0;\quad \frac{W}{W_x} = m^0.
+\label{heati4}
+\end{equation}
+
+Если заданы $T_0^0$ и $W$ для горячего потока, то из условий (\ref{heati4}) имеем
+\begin{equation}
+\begin{cases}
+W_x = \frac{W}{m^0},&\\
+T_x^0 = m^0(T_0^0 - \bar{q}/W).&
+\end{cases}
+\label{heati5}
+\end{equation}
+
+При выполнении условий (\ref{heati5}) зависимость между $\bar{\alpha}$ и $\bar{q}$ соответствует границе, показанной на рис. \ref{heat1fig}.
+
+\textbf{Распределение поверхностей и выбор структуры}
+
+Согласно (\ref{heat15}) зависимость $\sigma_{min}(\bar{\alpha})$ имеет вид, показанный на рис. \ref{heat2fig}.
+
+\begin{figure}
+\includegraphics[width=0.4\columnwidth]{heat2}
+\label{heat2fig}
+\caption{Характер зависимости минимального производства энтропии в двухпоточном теплообменнике от $\bar{\alpha}$}
+\end{figure}
+
+Она выпукла вниз, и решение задачи минимальной диссипации
+\begin{equation}
+\sum\sigma_{i_{min}}(\bar{\alpha}_i) \rightarrow \min\limits_{\alpha_i} / \sum\bar{\alpha}_i = \bar{\alpha}.
+\label{heat19}
+\end{equation}
+единственно.
+
+При постановке задачи (\ref{heat19}) предполагается, что для каждого теплообменника в системе изменение энтропии горячего потока $\sigma_{0i}(\bar{q}_i, W, T_{0i}^0)$ фиксировано. В этом случае условие стационарности функции Лагранжа
+\begin{equation}
+L = \sum\limits_i\left[\sigma_{i_{min}}(\bar{\alpha}_i) + \lambda\bar{\alpha}_i\right]
+\label{heat20}
+\end{equation}
+по $\bar{\alpha}_i$ приводит к требованию
+\[
+\frac{\sigma_{0i}}{\sigma_{0i}+\bar{\alpha}_i} = \lambda,
+\]
+откуда
+\begin{equation}
+\bar{\alpha}_i/\sigma_{0i} = const,\: \forall i.
+\label{heat21}
+\end{equation}
+
+Так как сумма $\bar{\alpha}_i$ задана, то
+\begin{equation}
+\bar{\alpha}_i^* = \bar{\alpha}\frac{\sigma_{0i}}{\sum\limits_i \sigma_{0i}}
+\label{heat22}
+\end{equation}
+
+\textbf{Параллельная структура}
+Нетрудно показать, что при распределении поверхностей по условиям (\ref{heat22}) минимальное производство энтропии имеет вид (\ref{heat15}) с той разницей, что вместо $\sigma_0$ фигурирует $\bar{\sigma}_0 = \sum\limits_i \sigma_{0i}$.
+
+\begin{figure}
+\includegraphics{heat3}
+\label{heat3fig}
+\caption{Параллельная структура теплообменников}
+\end{figure}
+
+\begin{equation}
+\sigma_{min} = \frac{\bar{\sigma}_0^2}{\bar{\sigma}_0 + \bar{\alpha}}.
+\label{heat23}
+\end{equation}
+
+Пусть имеется возможность распределить между теплообменниками тепловые нагрузки $\bar{q}_i$ при условии, что суммарная тепловая нагрузка задана
+\begin{equation}
+\sum\limits_i \bar{q}_i = \bar{q}.
+\label{heat24}
+\end{equation}
+
+Так как $\sigma_{min}$ монотонно зависит от $\bar{\sigma}_0$, то задача распределения тепловых нагрузок примет форму
+\begin{equation}
+\bar{\sigma}_0 = \sum\limits_i\sigma_{0i} = \sum\limits_i W_i\ln\left(1-\frac{\bar{q}_i}{W_i T_0^0}\right) \rightarrow \min\limits_{q_i}
+\label{heat25}
+\end{equation}
+при условии (\ref{heat24}).
+
+Условие оптимальности задачи (\ref{heat24}), (\ref{heat25}) примет вид
+\begin{equation}
+\frac{\partial \sigma_{0i}}{\partial q_i} = const = \frac{W_i}{\left(1 - \frac{\bar{q}_i}{W_i T_0^0}\right)W_i T_0^0}.
+\label{heat26}
+\end{equation}
+
+После очевидных преобразований получаем, что $\bar{q}_i$ надо выбирать так, чтобы все температуры потоков на выходе были одинаковы.
+\begin{equation}
+\bar{T}_{0i} = T_0^0 - \frac{\bar{q}_i}{W_i} = const = \bar{T}_0,
+\label{heat27}
+\end{equation}
+
+Температура
+\begin{equation}
+\bar{T}_0 = T_0^0 -\frac{\bar{q}}{\sum\limits_i W_i},
+\label{heat28}
+\end{equation}
+а оптимальная нагрузка
+\begin{equation}
+\bar{q}_i^* = \bar{q}\frac{W_i}{\sum W_i}.
+\label{heat29}
+\end{equation}
+
+После того, как найдены $\bar{q}_i^*$ и соответствующие им $\sigma_{0i}$, поверхности теплообмена можно рассчитать по формуле (\ref{heat22}).
+
+\textbf{Последовательная структура}
+
+\begin{figure}
+\includegraphics{heat4}
+\label{heat4fig}
+\caption{Последовательное соединение теплообменников}
+\end{figure}
+
+При последовательном соединении между $\sigma_{01}$ и $\sigma_{02}$ есть связь, так как
+\[
+T_{01} = T_0^0 - \frac{\bar{q}}{W},
+\]
+а значит
+\begin{equation}
+\sigma_{02} = W\ln\left[1 - \frac{\bar{q}_2}{W\left(T_0^0 - \frac{\bar{q}_1}{W}\right)}\right] = W\ln\left(1 - \frac{\bar{q}_2}{WT_0^0 - \bar{q}_1}\right)
+\label{heat30}
+\end{equation}
+при условии (\ref{heat24}).
+
+Суммируя $\sigma_{01}$ и $\sigma_{02}$, нетрудно показать, что $\bar{\sigma}_0$ не зависит от распределения тепловых нагрузок и равна
+\begin{equation}
+\bar{\sigma}_0 = W\ln\left(\frac{WT_0^0 - \bar{q}}{WT_0^0}\right).
+\label{heat31}
+\end{equation}
+
+Это позволяет в (\ref{heati5}) изменять $\bar{q}_1$ и $\bar{q}_2$ так, чтобы их сумма оставалась заданной, а температура первого из холодных потоков
+\[
+T_{x1}^0 = m^0 \left(T_0^0 - \frac{\bar{q}_1}{W}\right)
+\]
+была ближе к фактически имеющейся. Для второго потока
+\[
+T_{x2}^0 = m^0 \left(T_0^0 - \frac{\bar{q}}{W}\right).
+\]
+
+Все сказанное относится и к последовательном соединению трех и более теплообменников. В этом случае
+\begin{equation}
+\begin{cases}
+T_{xi}^0 = m^0\left(T_0^0 - \frac{\sum\limits_{\nu=1}^i \bar{q}_{\nu}}{W}\right),\: i = 1, 2, ..., n-1&\\
+T_{xn}^0 = m^0\left(T_0^0 - \frac{\bar{q}}{W}\right).&
+\end{cases}
+\label{heat32}
+\end{equation}
+
+\textbf{Общая структура с одним горячим потоком}
+
+\begin{figure}
+\includegraphics{heat5}
+\label{heat5fig}
+\caption{Пример последовательной структуры с распараллеливанием}
+\end{figure}
+
+Для теплообменников с одним горячим потоком структура может состоять из последовательно соединенных параллельных блоков (рис. \ref{heat5fig}). В этом случае каждая из параллельных систем должна удовлетворять полученным выше условиям оптимальности, а последовательные блоки должны иметь такие тепловые нагрузки, которые приспособлены к температурам охлаждающих потоков.
+
+Очевидно, что те же выводы справедливы, когда общий поток не горячий, а холодный, который нагревается в системе.
 \end{document}
