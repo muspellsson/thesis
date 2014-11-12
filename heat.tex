@@ -59,7 +59,7 @@ H =q(T_0,T)\left(\frac{1}{T}-\frac{1}{T_0} + \lambda - \frac{\Psi(l)}{W}\right) 
 
 Обозначим через $\sigma_0 < 0$ уменьшение энтропии горячего потока. Оно равно
 \begin{equation}
-\sigma_0(\bar{q},W, T_0^0) = \int\limits_{T_0^0}^{T_0^0-\bar{q}/W} W \frac{dT_0}{T_0} = W\ln\left(1-\frac{\bar{q}}{WT_0^0}\right).
+\sigma_0(\bar{q},W, T_0^0) = \int\limits_{0}^{L} q(T_0,T_x) \frac{dl}{T_0}=\int\limits_{T_0^0}^{T_0^0-\bar{q}/W} W \frac{dT_0}{T_0} = W\ln\left(1-\frac{\bar{q}}{WT_0^0}\right).
 \label{heat8}
 \end{equation}
 
@@ -82,27 +82,27 @@ q = \alpha(T_0 - T),
 \begin{equation}
 \begin{cases}
 \frac{T}{T_0} = const = m^0,&\\
-q(T_0) = \alpha T_0 (1 - m^0).&
+q(T_0) = \alpha T_0 (m^0 - 1).&
 \end{cases}
 \label{heat11}
 \end{equation}
 
 После подстановки в (\ref{heat8}) получим
 \begin{equation}
-\sigma_0 = \alpha L(m^0 - 1).
+\sigma_0 = \alpha L(m^0(\bar{q},\bar{\alpha}) - 1).
 \label{heat12}
 \end{equation}
 Обозначим $\alpha L$ через $\bar{\alpha}$.
 
-Из сравнения равенств (\ref{heat12}) и (\ref{heat8}) можно выразить $m^0$ через тепловую нагрузку и коэффициент теплопередачи
+Из сравнения равенств (\ref{heat12}) и (\ref{heat8}) можно выразить $m^0(\bar{q},\bar{\alpha})$ через тепловую нагрузку и коэффициент теплопередачи
 \begin{equation}
-m^0 = 1 + \frac{W}{\bar{\alpha}}\ln\left(1 - \frac{\bar{q}}{WT_0^0}\right) = 1 + \frac{\sigma_0}{\bar{\alpha}}.
+m^0(\bar{q},\bar{\alpha}) = 1 + \frac{W}{\bar{\alpha}}\ln\left(1 - \frac{\bar{q}}{WT_0^0}\right) = 1 + \frac{\sigma_0}{\bar{\alpha}}.
 \label{heat13}
 \end{equation}
 
 По формуле (\ref{heat2}) минимальная диссипация
 \begin{equation}
-\sigma_{min} = \frac{\bar{\alpha}(1-m^0)^2}{m^0}.
+\sigma_{min} = \frac{\bar{\alpha}(1-m^0(\bar{q},\bar{\alpha}))^2}{m^0(\bar{q},\bar{\alpha})}.
 \label{heat14}
 \end{equation}
 
@@ -129,12 +129,17 @@ W\ln\frac{T_0^0-\bar{q}/W}{T_0^0} + W_x\ln\frac{T_x^0+\bar{q}/W_x}{T_x^0} \geq \
 \label{heat17}
 \end{equation}
 
-Или, после разрешения относительно $\bar{\alpha}$
+Или, после разрешения относительно $\bar{\alpha}$ с учетом того, что $$W_x=\frac{W}{m(\bar{q},\bar{\alpha})},\quad T_x^0=(T_0^0-\frac{q}{W})m(\bar{q},\bar{\alpha}),$$ приходим к неравенству, в котором  минимально--возможное значение $\alpha$ содержится как в правой как и в левой части:
 \begin{equation}
-\bar{\alpha} \geq \frac{W_x W\ln\left(1+\frac{\bar{q}}{W_x T_x^0}\right)\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)}{W\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)+W_x\ln\left(1+\frac{\bar{q}}{W_x T_x^0}\right)}.
+\bar{\alpha}\geq \frac{W\ln\left(\frac{WT_0^0}{WT_0^0-\bar{q}}\right)\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)}{m(\bar{q},\bar{\alpha})\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)+\ln\left(\frac{WT_0^0}{WT_0^0-\bar{q}}\right)},
 \label{heat18}
 \end{equation}
-Таким образом, чтобы обеспечить тепловую нагрузку $\bar{q}$ при заданных температурах потоков на входе и их водяных эквивалентах в любом теплообменнике интегральный коэффициент теплообмена должен быть не меньше чем правая часть неравенства (\ref{heat18}).
+откуда
+\begin{equation}
+\bar{\alpha} \geq \frac{W\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)\left[\ln\left(\frac{WT_0^0}{WT_0^0-\bar{q}}\right)-1\right]}{\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)+\ln\left(\frac{WT_0^0}{WT_0^0-\bar{q}}\right)}
+\label{heat18a}
+\end{equation}
+Таким образом, чтобы обеспечить тепловую нагрузку $\bar{q}$ при заданных температурах потоков на входе и их водяных эквивалентах в любом теплообменнике интегральный коэффициент теплообмена должен быть не меньше чем правая часть неравенства (\ref{heat18a}).
 
 \begin{figure}
 \includegraphics[width=0.4\columnwidth]{heat1}
@@ -151,7 +156,7 @@ W\ln\frac{T_0^0-\bar{q}/W}{T_0^0} + W_x\ln\frac{T_x^0+\bar{q}/W_x}{T_x^0} \geq \
 
 Чтобы достичь полученной выше оценки минимальной диссипации $\sigma_{min}$ (см. (\ref{heat14})) для кинетики теплообмена линейной относительно разности температур требуется, чтобы в любой точке контакта отношение температур потоков было постоянно
 \begin{equation}
-T_x/T_0 = m^0 = 1 +\frac{W}{\bar{\alpha}}\ln\left(1-\frac{\bar{q}}{WT_0^0}\right).
+T_x/T_0 = m^0(\bar{q},\bar{\alpha}) = 1 +\frac{W}{\bar{\alpha}}\ln\left(1-\frac{\bar{q}}{WT_0^0}\right).
 \label{heati1}
 \end{equation}
 
@@ -167,19 +172,19 @@ T_x/T_0 = m^0 = 1 +\frac{W}{\bar{\alpha}}\ln\left(1-\frac{\bar{q}}{WT_0^0}\right
 \label{heati3}
 \end{equation}
 
-Таким образом, если для некоторого значения $l$ обеспечить, чтобы условие (\ref{heati1}) было выполнено и чтобы константа в (\ref{heati3}) была равна $m^0$, то условие (\ref{heati1}) окажется выполнено для всех $l$.
+Таким образом, если для некоторого значения $l$ обеспечить, чтобы условие (\ref{heati1}) было выполнено и чтобы константа в (\ref{heati3}) была равна $m^0(\bar{q},\bar{\alpha})$, то условие (\ref{heati1}) окажется выполнено для всех $l$.
 
 Получим для $l=0$
 \begin{equation}
-\frac{T_x^0 + \bar{q}/W_x}{T_0^0} = m^0;\quad \frac{W}{W_x} = m^0.
+\frac{T_x^0 + \bar{q}/W_x}{T_0^0} = m^0(\bar{q},\bar{\alpha});\quad \frac{W}{W_x} = m^0(\bar{q},\bar{\alpha}).
 \label{heati4}
 \end{equation}
 
 Если заданы $T_0^0$ и $W$ для горячего потока, то из условий (\ref{heati4}) имеем
 \begin{equation}
 \begin{cases}
-W_x = \frac{W}{m^0},&\\
-T_x^0 = m^0(T_0^0 - \bar{q}/W).&
+W_x = \frac{W}{m^0(\bar{q},\bar{\alpha})},&\\
+T_x^0 = m^0(\bar{q},\bar{\alpha})(T_0^0 - \bar{q}/W).&
 \end{cases}
 \label{heati5}
 \end{equation}
@@ -305,14 +310,14 @@ T_{01} = T_0^0 - \frac{\bar{q}}{W},
 
 Это позволяет в (\ref{heati5}) изменять $\bar{q}_1$ и $\bar{q}_2$ так, чтобы их сумма оставалась заданной, а температура первого из холодных потоков
 \[
-T_{x1}^0 = m^0 \left(T_0^0 - \frac{\bar{q}_1}{W}\right)
+T_{x1}^0 = m^0(\bar{q},\bar{\alpha}) \left(T_0^0 - \frac{\bar{q}_1}{W}\right)
 \]
 была ближе к фактически имеющейся. Для второго потока
 \[
-T_{x2}^0 = m^0 \left(T_0^0 - \frac{\bar{q}}{W}\right).
+T_{x2}^0 = m^0(\bar{q},\bar{\alpha}) \left(T_0^0 - \frac{\bar{q}}{W}\right).
 \]
 
-Все сказанное относится и к последовательном соединению трех и более теплообменников. В этом случае
+Все сказанное относится и к последовательному соединению трех и более теплообменников. В этом случае
 \begin{equation}
 \begin{cases}
 T_{xi}^0 = m^0\left(T_0^0 - \frac{\sum\limits_{\nu=1}^i \bar{q}_{\nu}}{W}\right),\: i = 1, 2, ..., n-1&\\
