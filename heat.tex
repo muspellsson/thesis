@@ -59,7 +59,7 @@ H =q(T_0,T)\left(\frac{1}{T}-\frac{1}{T_0} + \lambda - \frac{\Psi(l)}{W}\right) 
 
 Обозначим через $\sigma_0 < 0$ уменьшение энтропии горячего потока. Оно равно
 \begin{equation}
-\sigma_0(\bar{q},W, T_0^0) = \int\limits_{0}^{L} q(T_0,T_x) \frac{dl}{T_0}=\int\limits_{T_0^0}^{T_0^0-\bar{q}/W} W \frac{dT_0}{T_0} = W\ln\left(1-\frac{\bar{q}}{WT_0^0}\right).
+\sigma_0(\bar{q},W, T_0^0) = \int\limits_{0}^{L}-q(T_0,T_x) \frac{dl}{T_0}=\int\limits_{T_0^0}^{T_0^0-\bar{q}/W} W \frac{dT_0}{T_0} = W\ln\left(1-\frac{\bar{q}}{WT_0^0}\right).
 \label{heat8}
 \end{equation}
 
@@ -82,7 +82,7 @@ q = \alpha(T_0 - T),
 \begin{equation}
 \begin{cases}
 \frac{T}{T_0} = const = m^0,&\\
-q(T_0) = \alpha T_0 (m^0 - 1).&
+q(T_0) = \alpha T_0 (1 - m^0).&
 \end{cases}
 \label{heat11}
 \end{equation}
@@ -129,36 +129,67 @@ W\ln\frac{T_0^0-\bar{q}/W}{T_0^0} + W_x\ln\frac{T_x^0+\bar{q}/W_x}{T_x^0} \geq \
 \label{heat17}
 \end{equation}
 
-Или, после разрешения относительно $\bar{\alpha}$ с учетом того, что $$W_x=\frac{W}{m(\bar{q},\bar{\alpha})},\quad T_x^0=(T_0^0-\frac{q}{W})m(\bar{q},\bar{\alpha}),$$ приходим к неравенству, в котором  минимально--возможное значение $\alpha$ содержится как в правой как и в левой части:
+Или, после разрешения относительно $\bar{\alpha}$, приходим к неравенству
 \begin{equation}
-\bar{\alpha}\geq \frac{W\ln\left(\frac{WT_0^0}{WT_0^0-\bar{q}}\right)\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)}{m(\bar{q},\bar{\alpha})\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)+\ln\left(\frac{WT_0^0}{WT_0^0-\bar{q}}\right)},
+\bar{\alpha} \geq -\frac{W_xW\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)\ln\left(1+\frac{\bar{q}}{W_x T_x^0}\right)}{W\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)+W_x\ln\left(1+\frac{\bar{q}}{W_x T_x^0}\right)}
 \label{heat18}
 \end{equation}
-откуда
-ВАНЯ, ОТКУДА--????????НАДО ПОКАЗАТЬ ВЫВОД, ТОГДА НЕ ПРИШЛОСЬ БЫ МНЕ ПРОВЕРЯТЬ.
-МНЕ КАЖЕТСЯ, У ВАС ОШИБКА. ДОЛЖНО БЫТЬ 
-\begin{equation}
-\bar{\alpha} \geq \frac{W\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)\left[\ln\left(\frac{WT_0^0}{WT_0^0-\bar{q}}\right)-\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)\right]}{\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)+\ln\left(\frac{WT_0^0}{WT_0^0-\bar{q}}\right)}
-\label{heat18Ba}
-\end{equation}
-НО И В ЭТОМ СЛУЧАЕ ПОЛУЧАЕТСЯ ЕРУНДА, ВЕДЬ ЗНАМЕНАТЕЛЬ ВСЕГДА РАВЕН НУЛЮ.
+Таким образом, чтобы обеспечить тепловую нагрузку $\bar{q}$ при заданных температурах потоков на входе и их водяных эквивалентах в любом теплообменнике интегральный коэффициент теплообмена должен быть не меньше чем правая часть неравенства (\ref{heat18}).
 
+На $\bar{q}$ при этом наложено следующее ограничение
 \begin{equation}
-\bar{\alpha} \geq \frac{W\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)\left[\ln\left(\frac{WT_0^0}{WT_0^0-\bar{q}}\right)-1\right]}{\ln\left(1-\frac{\bar{q}}{WT_0^0}\right)+\ln\left(\frac{WT_0^0}{WT_0^0-\bar{q}}\right)}
+\bar{q} < \frac{\left(T_0^0-T_x^0\right)W_x W}{W+W_x}
 \label{heat18a}
 \end{equation}
-Таким образом, чтобы обеспечить тепловую нагрузку $\bar{q}$ при заданных температурах потоков на входе и их водяных эквивалентах в любом теплообменнике интегральный коэффициент теплообмена должен быть не меньше чем правая часть неравенства (\ref{heat18a}).
 
 \begin{figure}
 \includegraphics[width=0.4\columnwidth]{heat1}
-\caption{Зависимость $\bar{\alpha}$ от $\bar{q}$}
+\caption{Зависимость $\bar{\alpha}$ от $\bar{q}$ для теплообменника из примера 1.}
 \label{heat1fig}
 \end{figure}
 
-На рис. \ref{heat1fig} показана зависимость $\bar{\alpha}_{min}(\bar{q})$, соответствующая границе реализуемости. Область физической реализуемости теплообменников на этом рисунке заштрихована.
+\textbf{Пример 1}
 
-ОТМЕТИМ, ЧТО ТЕПЛООБМЕН НЕ РЕАЛИЗУЕМ ПРИ ТЕПЛОВОЙ НАГРУЗКЕ, БОЛЬШЕЙ $q^*$, КОТОРАЯ РАВНА
-??????? вАНЯ Я ИСПРАВИЛ ФОРМУЛУ 18 НАДО НАЙТИ ТЕПЛОВУЮ НАГРУЗКУ, ПРИ КОТОРОЙ ЗНАМЕНАТЕЛЬ РАВЕН НУЛЮ. 
+Рассмотрим пример теплообменника со следующими параметрами:
+\begin{enumerate}
+\item Температура горячего потока на входе $T_0^0 = 500K$, а его водяной эквивалент $W = 200\:\mbox{кВт/К}$;
+\item Температура холодного потока на входе $T_x^0 = 300K$, а его водяной эквивалент $W = 150\:\mbox{кВт/К}$;
+\item Тепловая нагрузка равна $\bar{q} = 1000\:\mbox{кВт}$;
+\item Интегральный коэффициент теплообмена равен $\bar{\alpha}$ = 10\:\mbox{кВт/К}.
+\end{enumerate}
+
+Получим, что $m^0$ равно
+\[
+m^0 = 1 + \frac{W}{\bar{\alpha}}\ln\left(1-\frac{\bar{q}}{WT_0^0}\right) = 0,8.
+\]
+
+Отсюда, уменьшение энтропии горячего потока
+\[
+\sigma_0 = \bar{\alpha}(m^0 - 1) = -2\:\mbox{кДж/К},
+\]
+а минимальная диссипация
+\[
+\sigma_{min} = \frac{\sigma_0^2}{\sigma_0 + \bar{\alpha}} = 0,333\:\mbox{кДж/К}.
+\]
+
+Фактическое значение энтропии равно
+\[
+\sigma = W\ln\frac{T_0^0-\bar{q}/W}{T_0^0} + W_x\ln\frac{T_x^0+\bar{q}/W_x}{T_x^0} = 1,216\:\mbox{кДж/К}
+\]
+
+Из условия (\ref{heat17}) видно, что теплообменник физически реализуем.
+
+Данный теплообменник также будет реализуем при следующих условиях (из (\ref{heat18}), (\ref{heat18a})):
+\[
+\begin{array}{l}
+\bar{q} < 8000\:\mbox{кВт},\\
+\bar{\alpha} \geq 5,33\:\mbox{кВт/К}.
+\end{array}
+\]
+
+Значению $q = 8000\:\mbox{кВт}$ соответствует ограничение $\bar{\alpha} \geq 75,9\:\mbox{кВт/К}$.
+
+На рис. \ref{heat1fig} показана зависимость $\bar{\alpha}_{min}(\bar{q})$, соответствующая границе реализуемости. Область физической реализуемости теплообменника на этом рисунке заштрихована.
 
 \textbf{Возможности реализации <<идеального>> двухпоточного теплообмена}
 
@@ -289,7 +320,6 @@ L = \sum\limits_i\left[\sigma_{i_{min}}(\bar{\alpha}_i) + \lambda\bar{\alpha}_i\
 
 После того, как найдены $\bar{q}_i^*$ и соответствующие им $\sigma_{0i}$, поверхности теплообмена можно рассчитать по формуле (\ref{heat22}).
 
-ВАНЯ ПРИМЕР НУЖЕН
 
 \textbf{Последовательная структура}
 
